@@ -1,7 +1,5 @@
 import React, { useEffect } from "react"
 import Box from '@mui/material/Box'
-import { useQuery } from '@apollo/client';
-import { GET_ME } from '../utils/queries'
 import auth from '../utils/auth';
 import MainContainer from '../components/MainContainer'
 import TopNav from "../components/TopNav";
@@ -31,7 +29,7 @@ const MainLayout = () => {
 
 
     useEffect(() => {
-        if (!isLoading && !isError) {
+        if (!isLoading && !isError && data !== null) {
             
             dispatch(updateWorlds(data.worlds))
             dispatch(setUserData(data))

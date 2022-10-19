@@ -17,7 +17,7 @@ const graphqlBaseQuery = ({ baseUrl }: { baseUrl: string }) => async ({ body }: 
 
 export const api = createApi({
     baseQuery: graphqlBaseQuery({
-        baseUrl: '/graphql'
+        baseUrl: 'https://world-maker-api.herokuapp.com/graphql'
     }),
     endpoints: () => ({})
 })
