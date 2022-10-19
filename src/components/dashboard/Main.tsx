@@ -11,7 +11,7 @@ const Main = () => {
 
     return (
         <>
-          <TitleBanner image={testImg} title={`${openWorld.name} Dashboard`} />  
+          <TitleBanner image={testImg} title={`${openWorld?.name} Dashboard`} />  
         </>
     )
 }
