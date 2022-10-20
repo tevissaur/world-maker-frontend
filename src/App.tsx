@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WorldRouter from './WorldRouter';
 
 export const client = new ApolloClient({
-  uri: '/graphql',
+  uri: 'https://world-maker-api.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 
