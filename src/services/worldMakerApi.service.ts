@@ -1,16 +1,14 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import request, {  gql, ClientError, GraphQLClient } from 'graphql-request'
-import { api } from '../utils/api';
-
-
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import request, { gql, ClientError, GraphQLClient } from "graphql-request";
+import { api } from "../utils/api";
 
 export const worldMakerApi = api.injectEndpoints({
-    endpoints: (builder) => ({
-        getMe: builder.query({
-            query: (id) => ({
-                body: gql`
+	endpoints: (builder) => ({
+		getSingleSubject: builder.query({
+			query: ({ id, modelName }) => ({
+				body: gql`
                 query {
-                  me(_id: "${id}") {
+                  getSingleSubject(_id: "${id}", modelName: "${modelName}") {
                     username
                     worlds {
                       _id
@@ -63,12 +61,12 @@ export const worldMakerApi = api.injectEndpoints({
                   }
                 }
               `,
-            }),
-            transformResponse: (response) => response.me
-        }),
-        getWorld: builder.query({
-            query: (name) => ({
-                body: gql`
+			}),
+			transformResponse: (response) => response.me,
+		}),
+		getWorld: builder.query({
+			query: (name) => ({
+				body: gql`
                 query {
                   world(name: "${name}") {
                     _id
@@ -119,74 +117,89 @@ export const worldMakerApi = api.injectEndpoints({
                     }
                   }
                 }
-            `
-            }),
-            transformResponse: (response) => response.world
-        })
-    })
-})
-
-
+            `,
+			}),
+			transformResponse: (response) => response.world,
+		}),
+    getMe: builder.query({
+			query: (id) => ({
+				body: gql`
+                query {
+                  getMe(_id: "${id}") {
+                    _id
+                    username
+                    email
+                    password
+                    userCreated
+                    worlds {
+                      _id
+                    }
+                  }
+                }
+              `,
+			}),
+			transformResponse: (response) => response.getMe,
+		})
+	}),
+});
 
 export const GET_USER_WORLDS = gql`
-    query GetUserWorlds($creator: ID!) {
-      userWorlds(creator: $creator) {
-        _id
-        name
-      }
-
-    }
-`
+	query GetUserWorlds($creator: ID!) {
+		userWorlds(creator: $creator) {
+			_id
+			name
+		}
+	}
+`;
 
 export const SINGLE_CHARACTER = gql`
-    query SingleCharacter($_id: ID!) {
-      singleCharacter(_id: $_id) {
-        _id
-        name
-        description
-        size
-        race {
-          name
-        }
-        class {
-          _id
-        }
-        backstory
-        bonds
-        goals
-        fears
-      }
-    }
-
-`
+	query SingleCharacter($_id: ID!) {
+		singleCharacter(_id: $_id) {
+			_id
+			name
+			description
+			size
+			race {
+				name
+			}
+			class {
+				_id
+			}
+			backstory
+			bonds
+			goals
+			fears
+		}
+	}
+`;
 
 export const SINGLE_RELIGION = gql`
-    query SingleReligion($id: ID!) {
-      singleReligion(_id: $id) {
-        _id
-        name
-        gods {
-          _id
-          name
-          description
-          domains
-          symbol
-          alignment
-        }
-      }
-    }
-`
+	query SingleReligion($id: ID!) {
+		singleReligion(_id: $id) {
+			_id
+			name
+			gods {
+				_id
+				name
+				description
+				domains
+				symbol
+				alignment
+			}
+		}
+	}
+`;
 export const SINGLE_GOD = gql`
-    query SingleGod($_id: ID!) {
-      singleGod(_id: $_id) {
-        _id
-        name
-        description
-        domains
-        symbol
-        alignment
-      }
-    }
-`
+	query SingleGod($_id: ID!) {
+		singleGod(_id: $_id) {
+			_id
+			name
+			description
+			domains
+			symbol
+			alignment
+		}
+	}
+`;
 
-export const { useGetMeQuery,  useLazyGetWorldQuery } = worldMakerApi
+export const { useGetSingleSubjectQuery, useLazyGetWorldQuery, useGetMeQuery } = worldMakerApi;

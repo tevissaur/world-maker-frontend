@@ -7,7 +7,6 @@ import { Link as ReactLink } from "react-router-dom";
 // import { visuallyHidden } from '@mui/utils'
 import testImg from '../../assets/205201-fantasy_art-landscape-arch.jpg'
 import store, { RootState } from "../../utils/store";
-import TitleBanner from "../TitleBanner";
 import { useSelector } from "react-redux";
 
 
@@ -17,7 +16,6 @@ const PantheonTable = () => {
 
     return (
         <>
-            <TitleBanner image={testImg} title={`Pantheons of ${openWorld?.name}`} />
             <Grid container justifyContent='space-between' spacing={2} >
                 <Grid item xs={12} sm={12} md={12} lg={3}>
 

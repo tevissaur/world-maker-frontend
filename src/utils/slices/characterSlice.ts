@@ -4,7 +4,7 @@ import { Character } from "../../interfaces/ICharacter"
 
 
 export interface CharacterState {
-    activeCharacter: Character
+    activeCharacter: Character;
 }
 
 const initialState: CharacterState = {
@@ -25,7 +25,7 @@ const initialState: CharacterState = {
         goals: [],
         fears: [],
         isNPC: false
-    }
+    },
 }
 
 export const characterSlice = createSlice({

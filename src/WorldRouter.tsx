@@ -1,5 +1,4 @@
 import React from 'react';
-import './sass/style.css';
 import { MainLayout, WikiPageLayout, LandingPage, SignInSide, SignUp } from './pages'
 import { CharacterMain, CreateWorld, Main, PantheonTable } from './components/dashboard'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -11,6 +10,8 @@ import GodsMain from './components/dashboard/SingleGod';
 import CreateGod from './components/dashboard/CreateGod';
 import RegionsMain from './components/dashboard/RegionsMain';
 import CreateRegion from './components/dashboard/CreateRegion';
+import TestPage from './pages/TestPage';
+import Dashboard from './pages/DashboardLayout';
 
 
 
@@ -22,7 +23,12 @@ const WorldRouter = () => {
             <Routes>
                 <Route path="/*" element={<MainLayout />}>
                     <Route index element={<LandingPage />} />
-                    <Route path="home" element={<LandingPage />} />
+                    <Route path='home' element={<LandingPage />} />
+                    <Route path='dashboard' element={<Dashboard />} />
+                    <Route path='about' element={<TestPage />} />
+                    <Route path='wiki' element={<TestPage />} />
+                    {/* <Route path="home" element={<Main />} /> */}
+                    {/* <Route path="home" element={<LandingPage />} />
                     <Route path="log-in" element={<SignInSide />} />
                     <Route path="sign-up" element={<SignUp />} />
                     <Route path="wiki/*">
@@ -44,7 +50,7 @@ const WorldRouter = () => {
                         <Route path="religion/:id" element={<SingleReligion />} />
                         <Route path="character/:_id" element={<SingleCharacter />} />
                         <Route path="god/:_id" element={<GodsMain />} />
-                    </Route>
+                    </Route> */}
 
 
                 </Route>

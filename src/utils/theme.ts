@@ -1,13 +1,13 @@
-import { createTheme } from "@mui/material";
+// my-theme.ts
+import { DefaultTheme } from 'styled-components';
 
+const myTheme: DefaultTheme = {
+  borderRadius: '5px',
+  drawerWidth: '240px',
+  colors: {
+    main: 'cyan',
+    secondary: 'magenta',
+  },
+};
 
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#201209'
-        }
-    }
-})
-
-export default theme
+export { myTheme };

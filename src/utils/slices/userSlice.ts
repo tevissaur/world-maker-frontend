@@ -1,20 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import { User } from "../../interfaces/IUser"
+import { IUser } from "../../interfaces/IUser"
 
 export interface UserState {
-    userData: Object;
+    userData: IUser;
 }
 
 const initialState: UserState = {
-    userData: {}
+    userData: {
+        username: '',
+        worlds: []
+    }
 }
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUserData: ((state, action: PayloadAction<User>) => {
+        setUserData: ((state, action: PayloadAction<IUser>) => {
             state.userData = action.payload
         })
     },

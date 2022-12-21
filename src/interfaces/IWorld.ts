@@ -1,9 +1,11 @@
 import { Character, Class, Race } from "./ICharacter";
 import { Region } from "./IRegion";
 import { Religion } from "./IReligion";
-import { User } from "./IUser";
+import { IUser } from "./IUser";
 
-class WorldBase {
+export interface WorldBase {
+    _id?: string;
+    name?: string;
 }
 
 export interface History {
@@ -16,9 +18,8 @@ export interface Category {
     name: string;
 }
 
-export interface World{
-    name: string;
-    creator: User;
+export interface World extends WorldBase{
+    creator?: IUser;
     religions: Array<Religion>;
     classes: Array<Class>;
     races: Array<Race>;

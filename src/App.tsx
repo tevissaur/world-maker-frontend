@@ -1,30 +1,24 @@
-import React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import './sass/style.css';
-import { useDispatch, useSelector } from "react-redux";
-import WorldRouter from './WorldRouter';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./styles/global";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import WorldRouter from "./WorldRouter";
+import { myTheme } from "./utils/theme";
 
 export const client = new ApolloClient({
-  uri: 'https://world-maker-api.herokuapp.com/graphql',
-  cache: new InMemoryCache(),
+	uri: "/graphql",
+	// uri: 'https://world-maker-api.herokuapp.com/graphql',
+	cache: new InMemoryCache({
+		resultCaching: true,
+	}),
 });
 
+const App: React.FC = () => (
+	<ApolloProvider client={client}>
+		<ThemeProvider theme={myTheme}>
+			<WorldRouter />
+		</ThemeProvider>
+	</ApolloProvider>
+);
 
-
-
-function App() {
-
-
-
-
-  return (
-    <ApolloProvider client={client}>
-
-      <WorldRouter />
-
-    </ApolloProvider>
-  )
-}
-
-
-export default App
+export default App;

@@ -14,7 +14,6 @@ import styled from '@mui/material/styles/styled'
 import placeholderImage from '../../assets/river_mountains.jpeg'
 import { SINGLE_CHARACTER } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
-import { setCharacter } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveCharacter } from "../../utils/slices/characterSlice";
 
