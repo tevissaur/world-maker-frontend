@@ -1,9 +1,9 @@
-export interface SideDrawerLink {
+export interface ISideDrawerLink {
     destUrl: string;
     displayText: string;
 }
 
-export const sideDrawerLinks = [
+export const sideDrawerLinks: Array<ISideDrawerLink> = [
     {
         destUrl: '/dashboard/create-new-world',
         displayText: 'Create New World'

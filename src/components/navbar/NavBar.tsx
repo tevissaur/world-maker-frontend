@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "../../utils/slices/uiSlice";
 import styled from "styled-components";
 import { Flex } from "../flex";
-import { dashboardUrl, homeUrl, wikiUrl } from "../../services/constants.service";
+import { dashboardUrl, homeUrl, wikiUrl } from "../../utils/constants";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Button } from "../button";

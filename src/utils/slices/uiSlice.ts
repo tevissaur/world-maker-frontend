@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import { sideDrawerLinks, SideDrawerLink } from "../../interfaces/SideBarLink"
-import authenticationService from "../../services/authentication.service";
+import { sideDrawerLinks, ISideDrawerLink } from "../../interfaces/ISideBarLink"
+import authenticationService from "../../utils/auth";
 
 export interface UiState {
     drawerOpen: boolean;
     modalOpen: boolean;
-    sideDrawerLinks: Array<SideDrawerLink>;
+    sideDrawerLinks: Array<ISideDrawerLink>;
 }
 
 const initialState: UiState = {

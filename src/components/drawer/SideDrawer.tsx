@@ -4,20 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "../../utils/slices/uiSlice";
 import styled from "styled-components";
 import { Flex } from "../flex";
-import { homeUrl } from "../../services/constants.service";
+import { homeUrl } from "../../utils/constants";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
-const Drawer = styled.nav<any>`
-	display: flex;
+const Drawer = styled(Flex)<any>`
+	top: 0;
 	flex-direction: column;
 	background-color: black;
 	height: 100%;
 	width: ${({ drawerOpen }) => (drawerOpen ? "240px" : 0)};
 	transition: all 200ms ease-in-out;
 	& > a {
-		width: ${({ drawerOpen }) => (drawerOpen ? "90%" : "0")};
+		width: ${({ drawerOpen }) => (drawerOpen ? "90%" : 0)};
 		border-radius: 5px;
+		flex-grow: 0;
 	}
 `;
 const DrawerButton = styled(Link)<any>`
@@ -30,7 +31,6 @@ const DrawerButton = styled(Link)<any>`
 	border: 1px black solid;
 	color: black;
 	width: ${({ drawerOpen }) => (drawerOpen ? "90%" : "0")};
-	transition: all 400ms ease;
 	&:hover {
 		background-color: darkgreen;
 		cursor: pointer;

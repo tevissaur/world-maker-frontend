@@ -1,36 +1,40 @@
-import React from 'react';
-import { MainLayout, WikiPageLayout, LandingPage, SignInSide, SignUp } from './pages'
-import { CharacterMain, CreateWorld, Main, PantheonTable } from './components/dashboard'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import SingleCharacter from './components/dashboard/SingleCharacter';
-import CreateCharacter from './components/dashboard/CreateCharacter';
-import CreateReligion from './components/dashboard/CreateReligion';
-import SingleReligion from './components/dashboard/SingleReligion'
-import GodsMain from './components/dashboard/SingleGod';
-import CreateGod from './components/dashboard/CreateGod';
-import RegionsMain from './components/dashboard/RegionsMain';
-import CreateRegion from './components/dashboard/CreateRegion';
-import TestPage from './pages/TestPage';
-import Dashboard from './pages/DashboardLayout';
+import React from "react";
+import { MainLayout, WikiPageLayout, LandingPage } from "./pages";
+import {
+	CharacterMain,
+	CreateWorld,
+	Main,
+	PantheonTable,
+} from "./components/dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SingleCharacter from "./components/dashboard/SingleCharacter";
+import CreateCharacter from "./components/dashboard/CreateCharacter";
+import CreateReligion from "./components/dashboard/CreateReligion";
+import SingleReligion from "./components/dashboard/SingleReligion";
+import GodsMain from "./components/dashboard/SingleGod";
+import CreateGod from "./components/dashboard/CreateGod";
+import RegionsMain from "./components/dashboard/RegionsMain";
+import CreateRegion from "./components/dashboard/CreateRegion";
+import Dashboard from "./pages/Dashboard/DashboardLayout";
+import { SignIn, SignUp } from "./components/auth";
 
-
-
-const WorldRouter = () => {
-
-
-    return (
-        <Router>
-            <Routes>
-                <Route path="/*" element={<MainLayout />}>
-                    <Route index element={<LandingPage />} />
-                    <Route path='home' element={<LandingPage />} />
-                    <Route path='dashboard' element={<Dashboard />} />
-                    <Route path='about' element={<TestPage />} />
-                    <Route path='wiki' element={<TestPage />} />
-                    {/* <Route path="home" element={<Main />} /> */}
-                    {/* <Route path="home" element={<LandingPage />} />
-                    <Route path="log-in" element={<SignInSide />} />
-                    <Route path="sign-up" element={<SignUp />} />
+const WorldRouter = () => (
+	<Router>
+		<Routes>
+			<Route path="/*" element={<MainLayout />}>
+				<Route index element={<LandingPage />} />
+				<Route path="home" element={<LandingPage />} />
+				<Route path="dashboard" element={<Dashboard />} />
+				<Route path="about" element={<LandingPage />} />
+				<Route path="wiki/*">
+					<Route index element={<WikiPageLayout />} />
+					<Route path="home" element={<WikiPageLayout />} />
+					<Route path="bestiary" element={<WikiPageLayout />} />
+				</Route>
+				<Route path="log-in" element={<SignIn />} />
+				<Route path="sign-up" element={<SignUp />} />
+				{/* <Route path="home" element={<Main />} /> */}
+				{/* <Route path="home" element={<LandingPage />} />
                     <Route path="wiki/*">
                         <Route index element={<WikiPageLayout />} />
                         <Route path="home" element={<WikiPageLayout />} />
@@ -51,12 +55,9 @@ const WorldRouter = () => {
                         <Route path="character/:_id" element={<SingleCharacter />} />
                         <Route path="god/:_id" element={<GodsMain />} />
                     </Route> */}
-
-
-                </Route>
-            </Routes>
-        </Router>
-    )
-}
+			</Route>
+		</Routes>
+	</Router>
+);
 
 export default WorldRouter;
