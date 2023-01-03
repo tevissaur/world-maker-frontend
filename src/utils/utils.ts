@@ -1,32 +1,4 @@
 class UtilsService {
-
-    // isCartDuplicate(cart = [], newItem) {
-    //     for (let item of cart) {
-    //         if (item.productID === newItem.productID) {
-    //             return true
-    //         }
-    //     }
-    //     return false
-    // }
-
-    // cleanCart(cart = []) {
-    //     if (cart.length == 0) return cart;
-
-    //     return cart.map(item => {
-    //         return {
-    //             price: item.price,
-    //             quantity: {
-    //                 type: item.quantity.type,
-    //                 amount: item.quantity.amount
-    //             },
-    //             dateAdded: item.dateAdded,
-    //             farmID: item.farmID,
-    //             productID: item.productID
-    //         }
-
-    //     })
-    // }
-
     getSearchParams(params) {
         const paramsArr = params.split('&').map(param => param.split('='))
         let paramsObj
@@ -38,8 +10,6 @@ class UtilsService {
         }
         return paramsObj
     }
-
-    // getActivePage = () => window.location.pathname.split('/')[1]
 }
 
 export default new UtilsService();

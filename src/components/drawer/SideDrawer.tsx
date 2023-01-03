@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import { RootState } from "../../utils/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "../../utils/slices/uiSlice";
@@ -15,7 +15,9 @@ const Drawer = styled(Flex)<any>`
 	height: 100%;
 	width: ${({ drawerOpen }) => (drawerOpen ? "240px" : 0)};
 	transition: all 200ms ease-in-out;
+	overflow: hidden;
 	& > a {
+		transition: all 200ms ease-in-out;
 		width: ${({ drawerOpen }) => (drawerOpen ? "90%" : 0)};
 		border-radius: 5px;
 		flex-grow: 0;
@@ -37,7 +39,7 @@ const DrawerButton = styled(Link)<any>`
 	}
 `;
 
-const SideDrawer: React.FC<any> = ({ children, ...props }) => {
+const SideDrawer: React.FC<PropsWithChildren> = ({ children, ...props }) => {
 	const {
 		ui: { drawerOpen },
 	} = useSelector((state: RootState) => state);

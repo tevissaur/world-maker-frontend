@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "../../utils/slices/uiSlice";
 import styled from "styled-components";
 import { Flex } from "../flex";
-import { dashboardUrl, homeUrl, wikiUrl } from "../../utils/constants";
+import { dashboardUrl, homeUrl, signInUrl, signUpUrl, wikiUrl } from "../../utils/constants";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Button } from "../button";
@@ -63,6 +63,8 @@ const TopNav: React.FC<any> = () => {
 			<NavButton to={homeUrl}>Home</NavButton>
 			<NavButton to={dashboardUrl}>Features</NavButton>
 			<NavButton to={wikiUrl}>Browse</NavButton>
+			<NavButton to={signUpUrl}>Sign Up</NavButton>
+			<NavButton to={signInUrl}>Sign In</NavButton>
 		</NavBar>
 	);
 };
