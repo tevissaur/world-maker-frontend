@@ -12,7 +12,7 @@ const Drawer = styled(Flex)<any>`
 	top: 0;
 	flex-direction: column;
 	background-color: black;
-	height: 100%;
+	height: 100vh;
 	width: ${({ drawerOpen }) => (drawerOpen ? "240px" : 0)};
 	transition: all 200ms ease-in-out;
 	overflow: hidden;
@@ -39,6 +39,13 @@ const DrawerButton = styled(Link)<any>`
 	}
 `;
 
+const DrawerHeader = styled.div<any>`
+	height: 64px;
+`
+const DrawerLabel = styled.label<any>`
+	color: red;
+`
+
 const SideDrawer: React.FC<PropsWithChildren> = ({ children, ...props }) => {
 	const {
 		ui: { drawerOpen },
@@ -47,7 +54,9 @@ const SideDrawer: React.FC<PropsWithChildren> = ({ children, ...props }) => {
 
 	return (
 		<Drawer drawerOpen={drawerOpen} flexDirection={"column"}>
-			<DrawerButton>HOME</DrawerButton>
+			<DrawerHeader />
+			<DrawerLabel>Create</DrawerLabel>
+			<DrawerButton>Character</DrawerButton>
 			<DrawerButton>HOME</DrawerButton>
 			<DrawerButton>HOME</DrawerButton>
 			<DrawerButton>HOME</DrawerButton>
