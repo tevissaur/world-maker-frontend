@@ -7,8 +7,19 @@ declare module 'styled-components' {
     borderRadius: string;
     drawerWidth: string;
     colors: {
-      main: string;
-      secondary: string;
+      light: {
+        primary: string;
+        secondary: string;
+        tertiary: string;
+      };
+      dark: {
+        primary: string;
+        secondary: string;
+        tertiary: string;
+      }
+      black: string;
+      white: string;
     };
+    fontFamily: string;
   }
 }

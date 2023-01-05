@@ -1,5 +1,5 @@
 export const homeUrl = '/home'
 export const dashboardUrl = '/dashboard'
 export const wikiUrl = '/wiki'
-export const signUpUrl = '/signup'
-export const signInUrl = '/signin'
+export const signUpUrl = '/sign-up'
+export const signInUrl = '/log-in'

@@ -5,7 +5,7 @@ import auth from "../../utils/auth";
 import { Form, Button } from "react-bootstrap";
 
 
-const SignIn = () => {
+const LogIn = () => {
 	// const [loginData, setLoginData] = useState({
 	// 	email: "",
 	// 	password: "",
@@ -55,4 +55,4 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
+export default LogIn;

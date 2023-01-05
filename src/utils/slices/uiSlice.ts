@@ -7,12 +7,14 @@ export interface UiState {
     drawerOpen: boolean;
     modalOpen: boolean;
     sideDrawerLinks: Array<ISideDrawerLink>;
+    isDarkMode: boolean
 }
 
 const initialState: UiState = {
     drawerOpen: authenticationService.loggedIn() ? true : false,
     modalOpen: false,
-    sideDrawerLinks: []
+    sideDrawerLinks: [],
+    isDarkMode: false,
 }
 
 export const uiSlice = createSlice({

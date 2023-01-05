@@ -1,5 +1,5 @@
 import React from "react";
-import store, { RootState } from "../../utils/store";
+import { RootState } from "../../utils/store";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDrawer } from "../../utils/slices/uiSlice";
 import styled from "styled-components";
@@ -14,16 +14,16 @@ const NavBar = styled.nav<any>`
 	display: flex;
 	position: fixed;
 	top: 0;
-	background-color: greenyellow;
+	background-color: ${({ theme }) => (theme.colors.dark.primary)};
 	padding: 10px;
 	align-content: center;
-	max-height: 64px;
+	height: 33px;
 	width: 100%;
 `;
 const NavButton = styled(Button)<any>`
-	background-color: rgb(172, 28, 28);
+	background-color: ${({ theme }) => (theme.colors.light.secondary)};
 	&:hover {
-		background-color: rgb(126, 21, 21);
+		background-color: ${({ theme }) => (theme.colors.light.tertiary)};
 	}
 `;
 const HamburgerButton = styled(Flex)<any>`
@@ -36,9 +36,9 @@ const HamburgerButton = styled(Flex)<any>`
 	justify-self: center;
 	align-items: center;
     transition: all 300ms;
-	background-color: gray;
+	background-color: ${({ theme }) => (theme.colors.dark.tertiary)};
 	&:hover {
-		background-color: #505050;
+		background-color: ${({ theme }) => (theme.colors.white)};
 		cursor: pointer;
 	}
 `;
@@ -63,8 +63,6 @@ const TopNav: React.FC<any> = () => {
 			<NavButton to={homeUrl}>Home</NavButton>
 			<NavButton to={dashboardUrl}>Features</NavButton>
 			<NavButton to={wikiUrl}>Browse</NavButton>
-			<NavButton to={signUpUrl}>Sign Up</NavButton>
-			<NavButton to={signInUrl}>Sign In</NavButton>
 		</NavBar>
 	);
 };

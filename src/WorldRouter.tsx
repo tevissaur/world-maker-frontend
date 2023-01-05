@@ -16,7 +16,7 @@ import CreateGod from "./components/dashboard/CreateGod";
 import RegionsMain from "./components/dashboard/RegionsMain";
 import CreateRegion from "./components/dashboard/CreateRegion";
 import Dashboard from "./pages/Dashboard/DashboardLayout";
-import { SignIn, SignUp } from "./components/auth";
+import { LogIn, SignUp } from "./components/auth";
 
 const WorldRouter = () => (
 	<Router>
@@ -31,7 +31,7 @@ const WorldRouter = () => (
 					<Route path="home" element={<WikiPageLayout />} />
 					<Route path="bestiary" element={<WikiPageLayout />} />
 				</Route>
-				<Route path="log-in" element={<SignIn />} />
+				<Route path="log-in" element={<LogIn />} />
 				<Route path="sign-up" element={<SignUp />} />
 				{/* <Route path="home" element={<Main />} /> */}
 				{/* <Route path="home" element={<LandingPage />} />
